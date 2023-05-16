@@ -54,10 +54,10 @@ public class InterfacePrincipal {
                     cadastrarProduto();
                     break;
 		        case 2:
-                    listarProduto();
+                    consultarProduto();
                     break;
                 case 3:
-                	System.out.print("Digite o tipo de Produto que você deseja listar - (1 - Produto não perecivel ou 2 - Produto perecivel: ");
+                	System.out.print("Digite o tipo de Produto que você deseja editar: \n(1 - Produto não alimentício ou 2 - Produto alimentício: ");
                     int tipoProduto = input.nextInt();
                     switch(tipoProduto){
                         case 1:
@@ -86,65 +86,71 @@ public class InterfacePrincipal {
     }
     public void cadastrarProduto() {
         int tipoProduto;
-
-        String nomeProduto;
-        String codigoProduto;
-        String descricao;
-        double precoCusto;
-        double precoVenda;
-        int quantidadecompra;
-        int quantidadeVenda;
+        String nomeProduto = "";
+        String codigoProduto = "";
+        String descricao = "";
+        double precoCusto = -1;
+        double precoVenda = -1;
+        int quantidadecompra = -1;
+        int quantidadeVenda = -1;
         int quantidadeEstoque;
 
-        System.out.print("Cadastro de Produto (Produto Perecivel/Produto não perecivel):");
+        System.out.print("Cadastro de Produto (Produto Alimentício/Produto não Alimentício):");
         System.out.print("\n");
 
         System.out.print("\nCodigo do produto: ");
-        codigoProduto = input.next();
-        System.out.print("Nome do produto: ");
-        nomeProduto = input.next();
-        System.out.print("descricao: ");
-        descricao = input.next();
-        System.out.print("preco custo: ");
-        precoCusto = input.nextDouble();
-        System.out.println("preco venda: ");
-        precoVenda = input.nextDouble();
-        System.out.println("quantidade compra: ");
-        quantidadecompra = input.nextInt();
-        System.out.println("quantidade venda: ");
-        quantidadeVenda = input.nextInt();
+        input.nextLine();
+        while(codigoProduto.isEmpty()) {
+        	codigoProduto = input.nextLine();
+        }
+        System.out.print("\nNome do produto: ");
+        while(nomeProduto.isEmpty()) {
+        	nomeProduto = input.nextLine();
+        }
+        System.out.print("\nDescricao: ");
+        while(descricao.isEmpty()) {
+        	descricao = input.nextLine();
+        }
+        System.out.print("\nPreco custo(Informe apenas número): ");
+        while(precoCusto == -1) {
+        	precoCusto = input.nextDouble();
+        }
+        System.out.println("\nPreco venda (Informe apenas número): ");
+        while(precoVenda == -1) {
+        	precoVenda = input.nextDouble();
+        }
+        System.out.println("\nQuantidade compra: ");
+        while(quantidadecompra == -1) {
+        	quantidadecompra = input.nextInt();
+        }
+        System.out.println("\nQuantidade vendida: ");
+        while(quantidadeVenda == -1) {
+        	quantidadeVenda = input.nextInt();
+        }
         quantidadeEstoque = 0; //inicialmente igual a 0
         
 
-        System.out.print("Digite o tipo de Produto - (1 - Produto não perecivel ou 2 - Produto perecivel): ");
+        System.out.print("Digite o tipo de Produto que você deseja cadastrar: \n(1 - Produto não alimentício ou 2 - Produto alimentício: ");
         tipoProduto = input.nextInt();
         input.nextLine(); // Limpar a quebra de linha pendente após nextInt()
         
         switch (tipoProduto) {
             case 1:
             	Produto produto;
-                produto = new Produto();
-                produto.setNomeProduto(nomeProduto);
-                produto.setCodigoProduto(codigoProduto);
-                produto.setDescricao(descricao);
-                produto.setPrecoCusto(precoCusto);
-                produto.setPrecoVenda(precoVenda);
-                produto.setQuantidadeVenda(quantidadeVenda);
-                produto.setQuantidadecompra(quantidadecompra);
-                produto.setQuantidadeEstoque(quantidadeEstoque);
+                produto = new Produto(nomeProduto, codigoProduto, descricao, precoCusto, precoVenda, quantidadeVenda, quantidadecompra, quantidadeEstoque  );
+                
                 controleProduto.cadastrarProduto(produto);
 
-                
-                System.out.print("\nProduto - Produto não perecivel cadastrada com sucesso!\n");
+                System.out.print("\nProduto - Produto cadastrada com sucesso!\n");
 
                 break;
             case 2:
-                System.out.print("Data de validade: ");
+                System.out.print("\nData de validade: ");
                 String dataDeValidade = input.next();
                 ProdutoAlimenticio produtoAlimenticio = new ProdutoAlimenticio(nomeProduto, codigoProduto, descricao, precoCusto, precoVenda, quantidadecompra, quantidadeVenda, quantidadeEstoque, dataDeValidade);
                 produtoAlimenticio.setValidade(dataDeValidade);
                 controleProdutoAlimenticio.cadastrarProdutoAlimenticio(produtoAlimenticio);
-                System.out.print("\n Produto - Produto Perecivel cadastrada com sucesso!\n");
+                System.out.print("\nProduto - Produto cadastrada com sucesso!\n");
                 break;
             default:
                 System.out.print("\nOpcao incorreta!\n");
@@ -156,10 +162,10 @@ public class InterfacePrincipal {
         }
     }
     
-    public void listarProduto(){
+    public void consultarProduto(){
         int tipoProduto;
         
-        System.out.print("Digite o tipo de Produto que você deseja listar - (1 - Produto não perecivel ou 2 - Produto perecivel: ");
+        System.out.print("Digite o tipo de Produto que você deseja consultar - (1 - Produto não alimentício ou 2 - Produto alimentício: ");
         tipoProduto = input.nextInt();
 
         switch (tipoProduto) {
@@ -178,9 +184,10 @@ public class InterfacePrincipal {
                         System.out.println("Quantidade estoque: " + controleProduto.getListProduto().get(i).getQuantidadeEstoque());
                         System.out.println("Quantidade venda: " + controleProduto.getListProduto().get(i).getQuantidadeVenda());
                         System.out.println("Quantidade compra: " + controleProduto.getListProduto().get(i).getQuantidadecompra());
+                        System.out.println("\n");
                     }
                 } else {
-                    System.out.print("\nNão existe nenhum Produto - Produto não Perecivel cadastrado!\n");
+                    System.out.print("\nNão existe Produto não alimenticio cadastrado!\n");
                 }
                 break;
             case 2:
@@ -201,9 +208,10 @@ public class InterfacePrincipal {
                         System.out.println("Quantidade venda: " + produtoAlimenticio.getQuantidadeVenda());
                         System.out.println("Quantidade compra: " + produtoAlimenticio.getQuantidadecompra());
                         System.out.println("Data de validade: " + produtoAlimenticio.getDataValidade());
+                        System.out.println("\n");
                     }
                 } else {
-                    System.out.print("\nNão existe nenhum produto alimenticio cadastradp!\n");
+                    System.out.print("\nNão existe produto alimenticio cadastrado!\n");
                 }
                 break;
             default:
@@ -218,15 +226,15 @@ public class InterfacePrincipal {
 
     public void editarProduto(){
 
-        String nomeProduto;
-        String descricao;
-        double precoCusto;
-        double precoVenda;
-        int quantidadecompra;
-        int quantidadeVenda;
-        int quantidadeEstoque;
+        String nomeProduto = "";
+        String descricao = "";
+        double precoCusto = -1;
+        double precoVenda = -1;
+        int quantidadecompra = -1;
+        int quantidadeVenda = -1;
+        int quantidadeEstoque = -1;
         try{
-            System.out.print("Para realizar a alteração, informe o codigo do produto: ");
+            System.out.print("\nPara realizar a alteração, informe o código do produto: ");
             String codigo = input.next();
 
             System.out.print("\n");
@@ -237,30 +245,41 @@ public class InterfacePrincipal {
                 System.out.print("Realize a alteração:");
                 System.out.print("\n");
 
-                System.out.print("Nome do produto: ");
-                nomeProduto = input.next();
-                System.out.print("descricao: ");
-                descricao = input.next();
-                System.out.print("preco custo: ");
-                precoCusto = input.nextDouble();
-                System.out.println("preco venda: ");
-                precoVenda = input.nextDouble();
-                System.out.println("quantidade compra: ");
-                quantidadecompra = input.nextInt();
-                System.out.println("quantidade venda: ");
-                quantidadeVenda = input.nextInt();
+                System.out.print("\nNome do produto: ");
+                input.nextLine();
+                while(nomeProduto.isEmpty()) {
+                	nomeProduto = input.nextLine();
+                }
+                System.out.print("\nDescricao: ");
+                while(descricao.isEmpty()) {
+                	descricao = input.nextLine();
+                }
+                System.out.print("\nPreco custo(Informe apenas número): ");
+                while(precoCusto == -1) {
+                	precoCusto = input.nextDouble();
+                }
+                System.out.println("\nPreco venda (Informe apenas número): ");
+                while(precoVenda == -1) {
+                	precoVenda = input.nextDouble();
+                }
+                System.out.println("\nQuantidade compra: ");
+                while(quantidadecompra == -1) {
+                	quantidadecompra = input.nextInt();
+                }
+                System.out.println("\nQuantidade vendida: ");
+                while(quantidadeVenda == -1) {
+                	quantidadeVenda = input.nextInt();
+                }
                 System.out.println("quantidade estoque: ");
-                quantidadeEstoque = input.nextInt();
-
-                produto.setNomeProduto(nomeProduto);
-                produto.setDescricao(descricao);
-                produto.setPrecoCusto(precoCusto);
-                produto.setPrecoVenda(precoVenda);
-                produto.setQuantidadeEstoque(quantidadeEstoque);
-                produto.setQuantidadeVenda(quantidadeVenda);
-                produto.setQuantidadecompra(quantidadecompra);
+                while(quantidadeEstoque == -1) {
+            		quantidadeEstoque = input.nextInt();
+            	}
+                produto = new Produto (nomeProduto, descricao, precoCusto, precoVenda, quantidadeEstoque, quantidadeVenda, quantidadecompra );
+                
                 System.out.print("\nProduto alterado com sucesso!\n");
-            } 
+            } else {
+            	System.out.print("O produto que você deseja editar não existe no sitema");
+            }
         } catch(Exception e){
             System.out.print(e.getMessage());
         }
@@ -418,9 +437,9 @@ public class InterfacePrincipal {
                     if(produtoAlimenticio != null){
 
                     	System.out.println("Quantidade de Estoque ");
-                    	do{
+                    	while(quantidadeEstoque == -1) {
                     		quantidadeEstoque = input.nextInt();
-                    	}while(quantidadeEstoque == -1);
+                    	}
                     	
                     	produtoAlimenticio.setQuantidadeEstoque(quantidadeEstoque);
                     	System.out.println("Estoque do produto cadastrada com sucesso ");

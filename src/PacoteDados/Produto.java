@@ -30,6 +30,16 @@ public class Produto {
 		this.precoVenda = precoVenda;
 		
 	}
+	public Produto(String nomeProduto, String descricao, double precoCusto, double precoVenda,
+			int quantidadeEstoque, int quantidadeVenda, int quantidadecompra) {
+		this.nomeProduto = nomeProduto;
+		this.descricao = descricao;
+		this.precoCusto = precoCusto;
+		this.precoVenda = precoVenda;
+		this.quantidadecompra = quantidadecompra;
+		this.quantidadeVenda = quantidadeVenda;
+		this.quantidadeEstoque = quantidadeEstoque;
+	}
 	
 	
 	public String getNomeProduto() {
