@@ -7,8 +7,8 @@ O sistema consiste em um programa que busca facilitar o controle e manipulação
 
 Nesse Repositório contém os seguintes arquivos:
 
-- `Arquivos do Projeto em Java`: Na pasta "src" está contido os pacotes com as respectivas classes
-- `Arquivo em pdf (CRUD - ControleDeProduto.pdf)`: Nesse arquivo está as especificações do produto: Descrição do sistema; Backlog; Arquitetura do sistema. 
+- [`Arquivos do Projeto em Java`: Na pasta "src" está contido os pacotes com as respectivas classes](https://github.com/IvnaFeitosa/ControleDeEstoque-POO/tree/main/src)
+- [`Arquivo em pdf`: Nesse arquivo está as especificações do produto: Descrição do sistema; Backlog; Arquitetura do sistema.](https://github.com/IvnaFeitosa/ControleDeEstoque-POO/blob/main/CRUD%20-%20ControleDeProduto.pdf)
 
 
 
