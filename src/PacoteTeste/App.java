@@ -9,9 +9,7 @@ public class App {
     	Scanner input = new Scanner(System.in);
     	InterfacePrincipal interfacePrincipal = new InterfacePrincipal();
     	
-    	String nome;
-		
-		int cont = 0;
+    	String nome= "";
 		
 		System.out.println("Iniciando programa\n");
 		
@@ -19,19 +17,18 @@ public class App {
 		Funcionario funci2 = new Funcionario("Carlos", "Asistente");
 		Funcionario funci3 = new Funcionario("Anna", "Surpevisora");
     	System.out.println("Por favor nos informe seu nome: ");
-		while(cont==0){
-			nome = input.nextLine();
-			if (nome.equals(funci1.getNomeFuncionario()) || nome.equals(funci2.getNomeFuncionario()) || nome.equals(funci3.getNomeFuncionario())) {
-				
-					interfacePrincipal.menu();
-				 cont++;
-				
-			}else {
-				System.out.println("\nDesculpe, apenas funcionários podem acessar o sistema.\n");
-				break;
-				
-			}
-		}
+    	while(nome.isEmpty()) {
+    		nome = input.nextLine();
+    	}
+    	if (nome.equals(funci1.getNomeFuncionario()) || nome.equals(funci2.getNomeFuncionario()) || nome.equals(funci3.getNomeFuncionario())) {
+    		
+    		interfacePrincipal.menu();
+    		cont++;
+    		
+    	}else {
+    		System.out.println("\nDesculpe, apenas funcionários podem acessar o sistema.\n");
+    	}
+		
         
     }
     
