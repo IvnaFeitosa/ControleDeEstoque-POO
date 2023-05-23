@@ -5,22 +5,24 @@ public class Produto {
 	private String descricao;
 	private double precoCusto;
 	private double precoVenda;
-	private int quantidadecompra;
+	private int quantidadeCompra;
 	private int quantidadeVenda;
 	private int quantidadeEstoque;
+	private int tipoProduto;
 	
 	public Produto () {
 		
 	}
-	public Produto (String nomeProduto, String codigoProduto, String descricao, double precoCusto, double precoVenda, int quantidadecompra, int quantidadeVenda, int quantidadeEstoque ) {
+	public Produto (String nomeProduto, String codigoProduto, String descricao, double precoCusto, double precoVenda, int quantidadeVenda, int quantidadeCompra, int quantidadeEstoque, int tipoProduto ) {
 		this.nomeProduto = nomeProduto;
 		this.codigoProduto = codigoProduto;
 		this.descricao = descricao;
 		this.precoCusto = precoCusto;
 		this.precoVenda = precoVenda;
-		this.quantidadecompra = quantidadecompra;
+		this.quantidadeCompra = quantidadeCompra;
 		this.quantidadeVenda = quantidadeVenda;
 		this.quantidadeEstoque = quantidadeEstoque;
+		this.tipoProduto = tipoProduto;
 	}
 	public Produto (String nomeProduto, String codigoProduto, String descricao, double precoCusto, double precoVenda ) {
 		this.nomeProduto = nomeProduto;
@@ -30,16 +32,7 @@ public class Produto {
 		this.precoVenda = precoVenda;
 		
 	}
-	public Produto(String nomeProduto, String descricao, double precoCusto, double precoVenda,
-			int quantidadeEstoque, int quantidadeVenda, int quantidadecompra) {
-		this.nomeProduto = nomeProduto;
-		this.descricao = descricao;
-		this.precoCusto = precoCusto;
-		this.precoVenda = precoVenda;
-		this.quantidadecompra = quantidadecompra;
-		this.quantidadeVenda = quantidadeVenda;
-		this.quantidadeEstoque = quantidadeEstoque;
-	}
+	
 	
 	
 	public String getNomeProduto() {
@@ -72,11 +65,17 @@ public class Produto {
 	public void setPrecoVenda(double precoVenda) {
 		this.precoVenda = precoVenda;
 	}
-	public int getQuantidadecompra() {
-		return quantidadecompra;
+	public int getQuantidadeCompra() {
+		return quantidadeCompra;
 	}
-	public void setQuantidadecompra(int quantidadecompra) {
-		this.quantidadecompra = quantidadecompra;
+	public void setQuantidadeCompra(int quantidadeCompra) {
+		this.quantidadeCompra = quantidadeCompra;
+	}
+	public int getTipoProduto() {
+		return tipoProduto;
+	}
+	public void setTipoProduto(int tipoProduto) {
+		this.tipoProduto = tipoProduto;
 	}
 	public int getQuantidadeVenda() {
 		return quantidadeVenda;
@@ -89,5 +88,14 @@ public class Produto {
 	}
 	public void setQuantidadeEstoque(int quantidadeEstoque) {
 		this.quantidadeEstoque = quantidadeEstoque;
+	}
+	
+	@Override
+	public String toString() {
+		return "\n\n-------------------------\n\n"+"Código do produto = " + codigoProduto + "; \nNome do produto = " + nomeProduto + "; \nDescrição do produto = " + descricao
+				+ "; \nPreço de custo = " + precoCusto + "; \nPreço de venda = " + precoVenda + 
+				"; \nQuantidade de compra = " + quantidadeCompra + "; \nQuantidade vendida = " + quantidadeVenda + 
+				"; \nQuantidade em estoque = " + quantidadeEstoque;
+		
 	}
 }

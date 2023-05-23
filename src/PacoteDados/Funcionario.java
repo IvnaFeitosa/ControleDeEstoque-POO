@@ -1,4 +1,4 @@
-package PacoteDados;
+	package PacoteDados;
 public class Funcionario {
 	String nomeFuncionario;
 	String cargo;
