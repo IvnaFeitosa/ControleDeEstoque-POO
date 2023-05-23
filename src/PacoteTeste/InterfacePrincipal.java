@@ -7,6 +7,7 @@ import PacoteDados.ProdutoAlimenticio;
 import PacoteRepositorio.ControleProduto;
 
 
+
 public class InterfacePrincipal {
     
     
@@ -23,7 +24,7 @@ public class InterfacePrincipal {
     Produto produtoInserido = null;
 
     public int menu() {
-        int opcao;
+    	int opcao;
 	    boolean loopMenu = true;
         
         while(loopMenu){
