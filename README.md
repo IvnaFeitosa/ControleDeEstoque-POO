@@ -1,18 +1,16 @@
-## Getting Started
+## Sistema de Controle de Estoque 
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+O sistema consiste em um programa que busca facilitar o controle e manipulação de informações sobre produtos existentes em uma determinada empresa, loja ou produto. Como funcionalidade do sistema, é possível cadastrar produto, consultar todos os produtos cadastrados e suas respectivas informações de atributos, excluir produto informando o código, Editar - por meio do código do produto - informações e especificações do produto, cadastrar estoque de produtos e, por fim, sair do sistema.
 
-## Folder Structure
 
-The workspace contains two folders by default, where:
+## Instruções de aquivos
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+Nesse Repositório contém os seguintes arquivos:
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+- [`Arquivos do Projeto em Java`: Na pasta "src" está contido os pacotes com as respectivas classes](https://github.com/IvnaFeitosa/ControleDeEstoque-POO/tree/main/src)
+- [`Arquivo em pdf`: Nesse arquivo está as especificações do produto: Descrição do sistema; Backlog; Arquitetura do sistema.](https://github.com/IvnaFeitosa/ControleDeEstoque-POO/blob/main/CRUD%20-%20ControleDeProduto.pdf)
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
 
-## Dependency Management
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+> Se você deseja verificar o funcionamento do sistema de controle de estoque, clone o repositório na sua máquina e execute o programa na IDE de sua preferência. 
+
