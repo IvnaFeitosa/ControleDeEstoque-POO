@@ -23,7 +23,7 @@ public class App {
     	if (nome.equals(funci1.getNomeFuncionario()) || nome.equals(funci2.getNomeFuncionario()) || nome.equals(funci3.getNomeFuncionario())) {
     		
     		interfacePrincipal.menu();
-    		cont++;
+    		
     		
     	}else {
     		System.out.println("\nDesculpe, apenas funcionários podem acessar o sistema.\n");
